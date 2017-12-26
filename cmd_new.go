@@ -52,7 +52,7 @@ func extract(tr *tar.Reader) error {
 }
 
 func newAction(ctx *kingpin.ParseContext) error {
-	resp, err := http.Get("https://api.github.com/repos/goske/" + newName + "/tarball")
+	resp, err := http.Get("https://api.github.com/repos/goske/goske-" + newName + "/tarball")
 	if err != nil {
 		return err
 	}

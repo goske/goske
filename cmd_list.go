@@ -30,7 +30,7 @@ func listAction(ctx *kingpin.ParseContext) error {
 		if repo.Description != nil {
 			desc = *repo.Description
 		}
-		fmt.Printf("%s: %s\n", *repo.Name, desc)
+		fmt.Printf("%s: %s\n", stripPrefix(*repo.Name), desc)
 	}
 	return nil
 }
