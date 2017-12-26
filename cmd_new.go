@@ -14,8 +14,8 @@ import (
 )
 
 var (
-	newCommand    = kingpin.Command("new", "create project with specified skeleton")
-	newOutputFlag = newCommand.Flag("output", "output name").Short('o')
+	newCommand    = kingpin.Command("new", "Create project with specified skeleton")
+	newOutputFlag = newCommand.Flag("output", "Output name").Short('o')
 	newName       string
 	newOutName    string
 )

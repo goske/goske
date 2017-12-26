@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	listCommand = kingpin.Command("list", "show all skeletons")
+	listCommand = kingpin.Command("list", "Show all skeletons")
 )
 
 func init() {
