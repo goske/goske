@@ -43,12 +43,14 @@ func extract(tr *tar.Reader) error {
 	if err != nil {
 		return err
 	}
-	defer f.Close()
 	_, err = io.Copy(f, tr)
 	if err != nil {
+		f.Close()
 		return err
 	}
-	return nil
+	f.Close()
+
+	return f.Chmod(os.FileMode(header.Mode))
 }
 
 func newAction(ctx *kingpin.ParseContext) error {
