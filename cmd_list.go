@@ -116,7 +116,7 @@ func init() {
 }
 
 func listAction(ctx *kingpin.ParseContext) error {
-	resp, err := http.Get("https://api.github.com/orgs/goske/repos")
+	resp, err := http.Get("https://api.github.com/orgs/" + goskeRepo() + "/repos")
 	if err != nil {
 		return err
 	}
