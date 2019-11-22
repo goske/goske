@@ -8,6 +8,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"runtime"
 	"strings"
 
 	"github.com/alecthomas/kingpin"
@@ -48,8 +49,11 @@ func extract(tr *tar.Reader) error {
 		f.Close()
 		return err
 	}
-	f.Close()
+	defer f.Close()
 
+	if runtime.GOOS == "windows" {
+		return nil
+	}
 	return f.Chmod(os.FileMode(header.Mode))
 }
 
